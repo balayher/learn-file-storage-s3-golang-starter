@@ -135,6 +135,7 @@ func (cfg *apiConfig) handlerUploadVideo(w http.ResponseWriter, r *http.Request)
 
 	url := cfg.getObjectURL(assetPath)
 	videoDat.VideoURL = &url
+
 	err = cfg.db.UpdateVideo(videoDat)
 	if err != nil {
 		respondWithError(w, http.StatusBadRequest, "Unable to update video data", err)
